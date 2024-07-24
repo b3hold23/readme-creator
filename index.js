@@ -55,11 +55,20 @@ const questions = await inquirer.prompt([
     )
 );
 
-
-
-
+import fs from 'fs';
+// TODO: install fs "npm i fs"
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return new promise((resolve, reject) => {
+        fs.writeReadme(fileName, data, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
 
 // // TODO: Create a function to initialize app
 // function init() {}

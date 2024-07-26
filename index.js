@@ -14,7 +14,24 @@ const licenses = {
     "Apache 2.0": {
         "badge": "![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)",
         "text": "This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details."
-    }
+    },
+    "BSD": {
+        "badge": "![BSD 3-Clause License](https://img.shields.io/badge/License-BSD_3--Clause-orange.svg)",
+        "text": "This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICENSE) file for details."
+    },
+    "Boost": {
+        "badge": "![Boost Software License 1.0 License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)",
+        "text": "This project is licensed under the Boost Software License 1.0 - see the [LICENSE](LICENSE) file for details."
+    },
+    "Creative Commons Zero": {
+        "badge": "![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)",
+        "text": "This project is licensed under the License: CC0-1.0 - see the [LICENSE](LICENSE) file for details."
+    },
+    "Eclipse": {
+        "badge": "[Eclipse Public License 1.0](https://img.shields.io/badge/License-EPL_1.0-red.svg)",
+        "text": "This project is licensed under the Eclipse Public License 1.0 - see the [LICENSE](LICENSE) file for details."
+    },
+    
 };
 // TODO: Create an array of questions for user input
 const questions = [

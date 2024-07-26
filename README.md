@@ -1,7 +1,7 @@
-# this is a test
+# 
 
 ## Description
-to run a test 
+
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,22 +13,22 @@ to run a test
 - [Tests](#tests)
 
 ## Installation
-none 
+
 
 ## Usage
-to run this test
+
 
 ## Credits
-none 
+
 
 ## License
-![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)
 
 ## Features
-none 
+
 
 ## Contribute
-none 
+
 
 ## Tests
 

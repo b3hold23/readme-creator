@@ -2,7 +2,7 @@
 import inquirer from "inquirer";
 import fs from 'fs';
 // TODO: Create an array of questions for user input
-const questions = await inquirer.prompt([
+const questions = [
     {
         type: 'input',
         message: 'What is the name of your project?',
@@ -48,12 +48,7 @@ const questions = await inquirer.prompt([
         message: 'Do you have any tests for your application?',
         name: 'test',
     },
-])
-.then((response) =>
-    console.log(
-        response
-    )
-);
+];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -66,26 +61,18 @@ function writeToFile(fileName, data) {
     });
 }
 
-//  POTENTIAL TRASH
-// inquirer.prompt(questions)
-//     .then((response) => {
-//         const readmeContent = generateReadmeContent(response);
-//         writeToFile('README.md', readmeContent);
-//     });
-//  POTENTIAL TRASH
-
-
 // // TODO: Create a function to initialize app
  async function init() {
-    const response = await inquirer.prompt(questions);
-    const readmeContent = generateReadmeContent(response);
-    writeToFile('README.md', readmeContent);
-}
+    try {
+        const response = await inquirer.prompt(questions);
+        const readmeContent = generateReadmeContent(response);
+        writeToFile('README.md', readmeContent);
+    } catch (err) {
+        console.log(err);
+    }
+ }
 
-// // Function call to initialize app
-init();
-
-
+// Takes in user input and inputs it into a readMe file.
 function generateReadmeContent(response) {
     const { projectTitle, description, installation, usage, credits, license, features, contribute, test } = response;
 
@@ -128,6 +115,5 @@ ${test}
     return readmeContent;
 }
 
-init().catch((err) => {
-    console.error(err);
-});
+//Call the function
+init();

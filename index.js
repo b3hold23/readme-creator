@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 import inquirer from "inquirer";
-
+import fs from 'fs';
 // TODO: Create an array of questions for user input
 const questions = await inquirer.prompt([
     {
@@ -55,23 +55,79 @@ const questions = await inquirer.prompt([
     )
 );
 
-import fs from 'fs';
-// TODO: install fs "npm i fs"
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    return new promise((resolve, reject) => {
-        fs.writeReadme(fileName, data, (err) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve();
-            }
-        });
+    fs.writeFile(fileName, data, (err) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(`${fileName} has been created`);
     });
 }
 
+//  POTENTIAL TRASH
+// inquirer.prompt(questions)
+//     .then((response) => {
+//         const readmeContent = generateReadmeContent(response);
+//         writeToFile('README.md', readmeContent);
+//     });
+//  POTENTIAL TRASH
+
+
 // // TODO: Create a function to initialize app
-// function init() {}
+ async function init() {
+    const response = await inquirer.prompt(questions);
+    const readmeContent = generateReadmeContent(response);
+    writeToFile('README.md', readmeContent);
+}
 
 // // Function call to initialize app
-// init();
+init();
+
+
+function generateReadmeContent(response) {
+    const { projectTitle, description, installation, usage, credits, license, features, contribute, test } = response;
+
+    const readmeContent = `# ${projectTitle}
+
+## Description
+${description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Features](#features)
+- [Contribute](#contribute)
+- [Tests](#tests)
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+
+## Credits
+${credits}
+
+## License
+${license}
+
+## Features
+${features}
+
+## Contribute
+${contribute}
+
+## Tests
+${test}
+`;
+
+    return readmeContent;
+}
+
+init().catch((err) => {
+    console.error(err);
+});

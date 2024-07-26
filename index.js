@@ -3,6 +3,10 @@ import inquirer from "inquirer";
 import fs from 'fs';
 
 const licenses = {
+    "None":{
+        "badge": "",
+        "text": ""
+    },
     "MIT": {
         "badge": "![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)",
         "text": "This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details."
@@ -30,8 +34,8 @@ const licenses = {
     "Eclipse": {
         "badge": "[Eclipse Public License 1.0](https://img.shields.io/badge/License-EPL_1.0-red.svg)",
         "text": "This project is licensed under the Eclipse Public License 1.0 - see the [LICENSE](LICENSE) file for details."
-    },
-    
+    }
+
 };
 // TODO: Create an array of questions for user input
 const questions = [
@@ -61,7 +65,6 @@ const questions = [
         name: 'credits',
     },
     {
-        //TODO: create button for license and add multiple choice.
         type: 'list',
         message: 'Choose your license:',
         name: 'license',
@@ -82,6 +85,16 @@ const questions = [
         message: 'Do you have any tests for your application?',
         name: 'test',
     },
+    {
+        type: 'input',
+        message: 'What is your github username and link?',
+        name: 'gitHub',
+    },
+    {
+        type: 'input',
+        message: 'What is your email?',
+        name: 'email'
+    },
 ];
 
 // TODO: Create a function to write README file
@@ -100,7 +113,7 @@ function writeToFile(fileName, data) {
     try {
         const response = await inquirer.prompt(questions);
         const readmeContent = generateReadmeContent(response);
-        writeToFile('README.md', readmeContent);
+        writeToFile('created-readme/README.md', readmeContent);
     } catch (err) {
         console.log(err);
     }
@@ -108,7 +121,7 @@ function writeToFile(fileName, data) {
 
 // Takes in user input and inputs it into a readMe file.
 function generateReadmeContent(response) {
-    const { projectTitle, description, installation, usage, credits, license, features, contribute, test } = response;
+    const { projectTitle, description, installation, usage, credits, license, features, contribute, test, gitHub, email } = response;
 
     const licenseBadge = licenses[license].badge;
     const licenseText = licenses[license].text;
@@ -138,6 +151,8 @@ ${credits}
 
 ## License
 ${licenseBadge}
+<br> 
+${licenseText}
 
 ## Features
 ${features}
@@ -147,6 +162,13 @@ ${contribute}
 
 ## Tests
 ${test}
+
+## My Info
+My github:
+<br>
+${gitHub}
+<br>
+MY email: ${email}
 `;
 
     return readmeContent;

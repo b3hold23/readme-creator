@@ -1,7 +1,7 @@
-# Test
+# this is a test
 
 ## Description
-this is a rest
+to run a test 
 
 ## Table of Contents
 - [Installation](#installation)
@@ -13,22 +13,22 @@ this is a rest
 - [Tests](#tests)
 
 ## Installation
-none at the moment 
+none 
 
 ## Usage
-I really want this to work
+to run this test
 
 ## Credits
-none
+none 
 
 ## License
-non
+![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Features
-nonoe
+none 
 
 ## Contribute
-none
+none 
 
 ## Tests
 

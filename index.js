@@ -1,6 +1,21 @@
 // TODO: Include packages needed for this application
 import inquirer from "inquirer";
 import fs from 'fs';
+
+const licenses = {
+    "MIT": {
+        "badge": "![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)",
+        "text": "This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details."
+    },
+    "GPLv3": {
+        "badge": "![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue.svg)",
+        "text": "This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details."
+    },
+    "Apache 2.0": {
+        "badge": "![Apache 2.0 License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)",
+        "text": "This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details."
+    }
+};
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -29,9 +44,11 @@ const questions = [
         name: 'credits',
     },
     {
-        type: 'input',
-        message: 'License:',
+        //TODO: create button for license and add multiple choice.
+        type: 'list',
+        message: 'Choose your license:',
         name: 'license',
+        choices: Object.keys(licenses)
     },
     {
         type: 'input',
@@ -76,6 +93,9 @@ function writeToFile(fileName, data) {
 function generateReadmeContent(response) {
     const { projectTitle, description, installation, usage, credits, license, features, contribute, test } = response;
 
+    const licenseBadge = licenses[license].badge;
+    const licenseText = licenses[license].text;
+
     const readmeContent = `# ${projectTitle}
 
 ## Description
@@ -100,7 +120,7 @@ ${usage}
 ${credits}
 
 ## License
-${license}
+${licenseBadge}
 
 ## Features
 ${features}

@@ -168,7 +168,7 @@ My github:
 <br>
 ${gitHub}
 <br>
-MY email: ${email}
+My email: ${email}
 `;
 
     return readmeContent;

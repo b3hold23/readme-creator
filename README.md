@@ -17,6 +17,7 @@ To install this app you will need to have node installed on your system. Once th
 
 ## Usage
 This project creates readme files for any project you are making. You will use the command line to answer some question and it will create the file for you.
+![command-line](./Images/command-line.JPG)
 
 ## Credits
 
@@ -27,7 +28,8 @@ This project creates readme files for any project you are making. You will use t
 
 
 ## Features
-I will be adding the features in screenshots.
+Some great features with this project is mainly the badges. Below I have provided a the code snippet showing which license are available to you with this project. 
+![badges-code](./Images/license%20img.JPG)
 
 ## Contribute
 
